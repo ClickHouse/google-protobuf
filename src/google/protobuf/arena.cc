@@ -39,6 +39,7 @@
 #include <typeinfo>
 #include <vector>
 
+#include "absl/container/internal/layout.h"
 #include "absl/base/attributes.h"
 #include "absl/synchronization/mutex.h"
 #include "google/protobuf/arena_allocation_policy.h"
