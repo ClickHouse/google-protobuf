@@ -97,12 +97,12 @@ class PROTOBUF_EXPORT ErrorCollector {
  private:
   // These should never be called directly, but if a legacy class overrides
   // them they'll get routed to by the Record* methods.
-  ABSL_DEPRECATED("Use RecordError")
+  /// ABSL_DEPRECATED("Use RecordError")
   virtual void AddError(int line, ColumnNumber column,
                         const std::string& message) {
     ABSL_LOG(FATAL) << "AddError or RecordError must be implemented.";
   }
-  ABSL_DEPRECATED("Use RecordWarning")
+  /// ABSL_DEPRECATED("Use RecordWarning")
   virtual void AddWarning(int line, ColumnNumber column,
                           const std::string& message) {}
 };

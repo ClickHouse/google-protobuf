@@ -219,13 +219,13 @@ class PROTOBUF_EXPORT MultiFileErrorCollector {
  private:
   // These should never be called directly, but if a legacy class overrides
   // them they'll get routed to by the Record* methods.
-  ABSL_DEPRECATED("Use RecordError")
+  /// ABSL_DEPRECATED("Use RecordError")
   virtual void AddError(const std::string& filename, int line, int column,
                         const std::string& message) {
     ABSL_LOG(FATAL) << "AddError or RecordError must be implemented.";
   }
 
-  ABSL_DEPRECATED("Use RecordWarning")
+  /// ABSL_DEPRECATED("Use RecordWarning")
   virtual void AddWarning(const std::string& filename, int line, int column,
                           const std::string& message) {}
 };

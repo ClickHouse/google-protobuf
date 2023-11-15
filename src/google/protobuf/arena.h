@@ -392,9 +392,9 @@ class PROTOBUF_EXPORT PROTOBUF_ALIGNAS(8) Arena final {
   // usually calling this method is unnecessary.
   // TODO(b/271599886): remove this function.
   template <typename T>
-  ABSL_DEPRECATED(
-      "This will be removed in a future release. Call value->GetArena() "
-      "instead.")
+  /// ABSL_DEPRECATED(
+  ///     "This will be removed in a future release. Call value->GetArena() "
+  ///     "instead.")
   PROTOBUF_ALWAYS_INLINE static Arena* GetArena(T* value) {
     return GetArenaInternal(value);
   }
