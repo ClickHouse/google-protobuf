@@ -1159,7 +1159,7 @@ class RepeatedPtrField final : private internal::RepeatedPtrFieldBase {
 
   // Gets the number of cleared objects that are currently being kept
   // around for reuse.
-  ABSL_DEPRECATED("This will be removed in a future release")
+  /// ABSL_DEPRECATED("This will be removed in a future release")
   int ClearedCount() const;
 
 #ifndef PROTOBUF_FUTURE_REMOVE_CLEARED_API
@@ -1169,7 +1169,7 @@ class RepeatedPtrField final : private internal::RepeatedPtrFieldBase {
   //
   // This method cannot be called when either the repeated field or |value| is
   // on an arena; both cases will trigger a ABSL_DCHECK-failure.
-  ABSL_DEPRECATED("This will be removed in a future release")
+  /// ABSL_DEPRECATED("This will be removed in a future release")
   void AddCleared(Element* value);
   // Removes and returns a single element from the cleared pool, passing
   // ownership to the caller.  The element is guaranteed to be cleared.
@@ -1178,7 +1178,7 @@ class RepeatedPtrField final : private internal::RepeatedPtrFieldBase {
   // This method cannot be called when the repeated field is on an arena; doing
   // so will trigger a ABSL_DCHECK-failure.
   PROTOBUF_NODISCARD
-  ABSL_DEPRECATED("This will be removed in a future release")
+  /// ABSL_DEPRECATED("This will be removed in a future release")
   Element* ReleaseCleared();
 #endif  // !PROTOBUF_FUTURE_REMOVE_CLEARED_API
 
@@ -1202,7 +1202,7 @@ class RepeatedPtrField final : private internal::RepeatedPtrFieldBase {
   inline Arena* GetArena();
 
 #ifndef PROTOBUF_FUTURE_REMOVE_CONST_REPEATEDFIELD_GETARENA_API
-  ABSL_DEPRECATED("This will be removed in a future release")
+  /// ABSL_DEPRECATED("This will be removed in a future release")
   inline Arena* GetArena() const;
 #endif  // !PROTOBUF_FUTURE_REMOVE_CONST_REPEATEDFIELD_GETARENA_API
 

@@ -1037,9 +1037,9 @@ class PROTOBUF_EXPORT FieldDescriptor : private internal::SymbolBase {
 
 
  public:
-  ABSL_DEPRECATED(
-      "Syntax is deprecated in favor of editions, please use "
-      "FieldDescriptor::has_presence instead.")
+  /// ABSL_DEPRECATED(
+      /// "Syntax is deprecated in favor of editions, please use "
+      /// "FieldDescriptor::has_presence instead.")
   // Returns true if this field was syntactically written with "optional" in the
   // .proto file. Excludes singular proto3 fields that do not have a label.
   bool has_optional_keyword() const;
@@ -1222,9 +1222,9 @@ class PROTOBUF_EXPORT OneofDescriptor : private internal::SymbolBase {
 
 
  public:
-  ABSL_DEPRECATED(
-      "Syntax is deprecated in favor of editions, please use "
-      "real_oneof_decl_count for now instead of is_synthetic.")
+  /// ABSL_DEPRECATED(
+      /// "Syntax is deprecated in favor of editions, please use "
+      /// "real_oneof_decl_count for now instead of is_synthetic.")
   // Returns whether this oneof was inserted by the compiler to wrap a proto3
   // optional field. If this returns true, code generators should *not* emit it.
   bool is_synthetic() const;
@@ -1887,16 +1887,15 @@ class PROTOBUF_EXPORT FileDescriptor : private internal::SymbolBase {
   const FileOptions& options() const;
 
 
- private:
   // With the upcoming release of editions, syntax should not be used for
   // business logic.  Instead, the various feature helpers defined in this file
   // should be used to query more targeted behaviors.  For example:
   // has_presence, is_closed, requires_utf8_validation.
   enum
-      ABSL_DEPRECATED(
-          "Syntax is deprecated in favor of editions.  Please use targeted "
-          "feature helpers instead (e.g. has_presence, is_packed, "
-          "requires_utf8_validation, etc).")
+      /// ABSL_DEPRECATED(
+          /// "Syntax is deprecated in favor of editions.  Please use targeted "
+          /// "feature helpers instead (e.g. has_presence, is_packed, "
+          /// "requires_utf8_validation, etc).")
           Syntax
 #ifndef SWIG
       : int
@@ -1910,19 +1909,20 @@ class PROTOBUF_EXPORT FileDescriptor : private internal::SymbolBase {
 #endif  // PROTOBUF_FUTURE_EDITIONS
   };
   PROTOBUF_IGNORE_DEPRECATION_START
-  ABSL_DEPRECATED(
-      "Syntax is deprecated in favor of editions.  Please use targeted "
-      "feature helpers instead (e.g. has_presence, is_packed, "
-      "requires_utf8_validation, etc).")
+  /// ABSL_DEPRECATED(
+      /// "Syntax is deprecated in favor of editions.  Please use targeted "
+      /// "feature helpers instead (e.g. has_presence, is_packed, "
+      /// "requires_utf8_validation, etc).")
   Syntax syntax() const;
   PROTOBUF_IGNORE_DEPRECATION_STOP
 
+ private:
   // Define a visibility-restricted wrapper for internal use until the migration
   // is complete.
   friend class FileDescriptorLegacy;
 
   PROTOBUF_IGNORE_DEPRECATION_START
-  ABSL_DEPRECATED("Syntax is deprecated in favor of editions")
+  /// ABSL_DEPRECATED("Syntax is deprecated in favor of editions")
   static const char* SyntaxName(Syntax syntax);
   PROTOBUF_IGNORE_DEPRECATION_STOP
 
@@ -2267,14 +2267,14 @@ class PROTOBUF_EXPORT DescriptorPool {
    private:
     // These should never be called directly, but if a legacy class overrides
     // them they'll get routed to by the Record* methods.
-    ABSL_DEPRECATED("Use RecordError")
+    /// ABSL_DEPRECATED("Use RecordError")
     virtual void AddError(const std::string& filename,
                           const std::string& element_name,
                           const Message* descriptor, ErrorLocation location,
                           const std::string& message) {
       ABSL_LOG(FATAL) << "AddError or RecordError must be implemented.";
     }
-    ABSL_DEPRECATED("Use RecordWarning")
+    /// ABSL_DEPRECATED("Use RecordWarning")
     virtual void AddWarning(const std::string& filename,
                             const std::string& element_name,
                             const Message* descriptor, ErrorLocation location,
@@ -2352,7 +2352,7 @@ class PROTOBUF_EXPORT DescriptorPool {
   void DisallowEnforceUtf8() { disallow_enforce_utf8_ = true; }
 
   // Use the deprecated legacy behavior for handling JSON field name conflicts.
-  ABSL_DEPRECATED("Deprecated treatment of field name conflicts is enabled.")
+  /// ABSL_DEPRECATED("Deprecated treatment of field name conflicts is enabled.")
   void UseDeprecatedLegacyJsonFieldConflicts() {
     deprecated_legacy_json_field_conflicts_ = true;
   }
